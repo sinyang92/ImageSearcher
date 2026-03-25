@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "ImageSearcher"
 include(":app")
- 
+include(":common")
+include(":design")
+include(":feature")
