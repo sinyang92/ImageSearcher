@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="search_image_screen_text_field_place_holder">Enter your words</string>
+    <string name="search_image_screen_search_button_text">Search</string>
+
+    <string name="search_image_result_screen_image_url">https://farm%1s.static.flickr.com/%2s/%3s_%4s.jpg</string>
+
+    <string name="search_image_error_screen_button_text">Try again</string>
+    <string name="search_image_error_screen_body">Something went wrong</string>
+
+</resources>

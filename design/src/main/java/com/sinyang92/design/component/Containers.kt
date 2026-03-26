@@ -25,7 +25,8 @@ fun PaddedColumn(
     Column(
         modifier = modifier
             .padding(16.dp)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .background(Color.White),
         content = content,
         verticalArrangement = verticalArrangement,
         horizontalAlignment = horizontalAlignment

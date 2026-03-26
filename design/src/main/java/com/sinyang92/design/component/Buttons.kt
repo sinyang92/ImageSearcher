@@ -18,12 +18,14 @@ import androidx.compose.ui.unit.dp
 fun PrimaryButton(
     modifier: Modifier = Modifier,
     text: String,
+    enabled: Boolean = true,
     onClick: () -> Unit
 ) {
     Button(
         modifier = modifier
             .widthIn(min = 100.dp),
         shape = RoundedCornerShape(size = 8.dp),
+        enabled = enabled,
         onClick = onClick
     ) {
         Text(
@@ -37,12 +39,14 @@ fun PrimaryButton(
 fun SecondaryButton(
     modifier: Modifier = Modifier,
     text: String,
+    enabled: Boolean = true,
     onClick: () -> Unit
 ) {
     OutlinedButton(
         modifier = modifier
             .widthIn(min = 100.dp),
         shape = RoundedCornerShape(size = 8.dp),
+        enabled = enabled,
         onClick = onClick
     ) {
         Text(

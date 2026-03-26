@@ -6,4 +6,6 @@ import kotlinx.serialization.Serializable
 object SearchImageScreen
 
 @Serializable
-object SearchImageResultScreen
+data class SearchImageResultScreen(
+    val query: String
+)

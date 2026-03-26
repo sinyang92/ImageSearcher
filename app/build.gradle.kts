@@ -61,4 +61,5 @@ dependencies {
 
     implementation(project(":common"))
     implementation(project(":design"))
+    implementation(project(":feature"))
 }
