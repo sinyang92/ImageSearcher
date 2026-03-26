@@ -1,7 +1,6 @@
 package com.sinyang92.common.network.data.impl
 
 import android.content.Context
-import android.content.res.Resources
 import io.mockk.clearAllMocks
 import io.mockk.every
 import io.mockk.mockk
