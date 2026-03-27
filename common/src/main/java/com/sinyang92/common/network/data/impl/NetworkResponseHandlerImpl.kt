@@ -3,6 +3,7 @@ package com.sinyang92.common.network.data.impl
 import com.sinyang92.common.network.domain.NetworkResponseHandler
 import com.sinyang92.common.network.domain.model.Resource
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.flow
 import retrofit2.Response
 
@@ -11,7 +12,7 @@ class NetworkResponseHandlerImpl : NetworkResponseHandler {
     override fun <T> getResourceFromResponse(
         apiCall: suspend () -> Response<T>
     ): Flow<Resource<T>> =
-        flow {
+        flow<Resource<T>> {
             emit(Resource.Loading(data = null))
             emit(
                 apiCall.invoke().let { response ->
@@ -26,5 +27,7 @@ class NetworkResponseHandlerImpl : NetworkResponseHandler {
                     }
                 }
             )
+        }.catch { error ->
+            emit(Resource.Error(error.message ?: "Unknown Error"))
         }
 }

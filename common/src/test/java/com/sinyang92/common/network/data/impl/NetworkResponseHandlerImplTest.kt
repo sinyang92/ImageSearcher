@@ -7,6 +7,7 @@ import okhttp3.ResponseBody.Companion.toResponseBody
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import retrofit2.Response
+import java.net.UnknownHostException
 
 class NetworkResponseHandlerImplTest {
 
@@ -31,6 +32,20 @@ class NetworkResponseHandlerImplTest {
         runTest {
             val mockApiCall = suspend {
                 Response.error<String>(404, "error body".toResponseBody())
+            }
+
+            networkResponseHandlerImpl.getResourceFromResponse(mockApiCall).test {
+                assertTrue(awaitItem() is Resource.Loading)
+                assertTrue(awaitItem() is Resource.Error)
+                awaitComplete()
+            }
+        }
+
+    @Test
+    fun `test getResourceFromResponse with exception`() =
+        runTest {
+            val mockApiCall: suspend () -> Response<String> = suspend {
+                throw UnknownHostException("Unable to resolve host")
             }
 
             networkResponseHandlerImpl.getResourceFromResponse(mockApiCall).test {
