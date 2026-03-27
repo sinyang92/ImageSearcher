@@ -12,8 +12,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.sinyang92.design.theme.ImageSearcherTheme
+import com.sinyang92.design.theme.LocalAppDimens
 
 @Composable
 fun PaddedColumn(
@@ -24,7 +24,7 @@ fun PaddedColumn(
 ) {
     Column(
         modifier = modifier
-            .padding(16.dp)
+            .padding(LocalAppDimens.current.rg16)
             .fillMaxWidth()
             .background(Color.White),
         content = content,

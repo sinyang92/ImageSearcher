@@ -15,13 +15,15 @@ import com.sinyang92.design.R
 import com.sinyang92.design.component.PaddedColumn
 import com.sinyang92.feature.searchimage.ui.model.Image
 
+private val minGridColumnSize = 128.dp
+
 @Composable
 fun ImagesDisplayScreen(
     images: List<Image>
 ) {
     PaddedColumn {
         LazyVerticalGrid(
-            columns = GridCells.Adaptive(minSize = 128.dp),
+            columns = GridCells.Adaptive(minSize = minGridColumnSize),
         ) {
             items(images, key = { it.id }) { image ->
                 AsyncImage(

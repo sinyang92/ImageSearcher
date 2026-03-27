@@ -13,6 +13,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.sinyang92.design.theme.LocalAppDimens
+
+private val minButtonWidth = 100.dp
 
 @Composable
 fun PrimaryButton(
@@ -23,8 +26,8 @@ fun PrimaryButton(
 ) {
     Button(
         modifier = modifier
-            .widthIn(min = 100.dp),
-        shape = RoundedCornerShape(size = 8.dp),
+            .widthIn(min = minButtonWidth),
+        shape = RoundedCornerShape(size = LocalAppDimens.current.xs8),
         enabled = enabled,
         onClick = onClick
     ) {
@@ -44,8 +47,8 @@ fun SecondaryButton(
 ) {
     OutlinedButton(
         modifier = modifier
-            .widthIn(min = 100.dp),
-        shape = RoundedCornerShape(size = 8.dp),
+            .widthIn(min = minButtonWidth),
+        shape = RoundedCornerShape(size = LocalAppDimens.current.xs8),
         enabled = enabled,
         onClick = onClick
     ) {
